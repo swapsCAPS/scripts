@@ -1,0 +1,13 @@
+[Unit]
+Description=Restarts NetworkManager after suspend to make wifi work again... Ugh
+After=suspend.target
+
+[Service]
+User=root
+Type=oneshot
+ExecStart=~/src/scripts/restart-nm.sh
+TimeoutSec=0
+StandardOutput=syslog
+
+[Install]
+WantedBy=suspend.target
