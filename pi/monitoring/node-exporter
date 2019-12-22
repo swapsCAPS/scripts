@@ -1,0 +1,11 @@
+#!/bin/bash
+docker stop node-exporter
+docker rm -f node-exporter
+docker run \
+  -d \
+  --net host \
+  --pid host \
+  --name node-exporter \
+  -v  /:/host:ro,rslave  \
+  quay.io/prometheus/node-exporter \
+  --path.rootfs=/host

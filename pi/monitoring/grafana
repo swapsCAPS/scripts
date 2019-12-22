@@ -1,0 +1,10 @@
+#!/bin/bash
+source /home/pi/.env
+docker stop grafana
+docker rm -f grafana
+docker run -d \
+  -p 3000:3000 \
+  --name=grafana \
+  -e "GF_SERVER_ROOT_URL=http://$(hostname)" \
+  -e "GF_SECURITY_ADMIN_PASSWORD=$GRAFANA_ADMIN_PASS" \
+  grafana/grafana
