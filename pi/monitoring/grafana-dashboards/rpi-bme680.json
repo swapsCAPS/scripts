@@ -1,0 +1,1091 @@
+{
+    "annotations": {
+        "list": [
+            {
+                "builtIn": 1,
+                "datasource": "-- Grafana --",
+                "enable": true,
+                "hide": true,
+                "iconColor": "rgba(0, 211, 255, 1)",
+                "name": "Annotations & Alerts",
+                "type": "dashboard"
+            }
+        ]
+    },
+    "editable": true,
+    "gnetId": null,
+    "graphTooltip": 0,
+    "id": 1,
+    "links": [],
+    "panels": [
+        {
+            "datasource": null,
+            "gridPos": {
+                "h": 1,
+                "w": 24,
+                "x": 0,
+                "y": 0
+            },
+            "id": 14,
+            "title": "Ambient",
+            "type": "row"
+        },
+        {
+            "aliasColors": {},
+            "bars": false,
+            "dashLength": 10,
+            "dashes": false,
+            "datasource": null,
+            "fill": 1,
+            "fillGradient": 0,
+            "gridPos": {
+                "h": 9,
+                "w": 8,
+                "x": 0,
+                "y": 1
+            },
+            "hiddenSeries": false,
+            "id": 9,
+            "legend": {
+                "alignAsTable": false,
+                "avg": true,
+                "current": true,
+                "max": true,
+                "min": false,
+                "rightSide": false,
+                "show": true,
+                "sideWidth": null,
+                "total": false,
+                "values": true
+            },
+            "lines": true,
+            "linewidth": 1,
+            "nullPointMode": "null",
+            "options": {
+                "dataLinks": []
+            },
+            "percentage": false,
+            "pointradius": 2,
+            "points": false,
+            "renderer": "flot",
+            "seriesOverrides": [],
+            "spaceLength": 10,
+            "stack": false,
+            "steppedLine": false,
+            "targets": [
+                {
+                    "expr": "bme680_metrics{type=\"temperature\"}",
+                    "instant": false,
+                    "legendFormat": "{{instance}}",
+                    "refId": "A"
+                }
+            ],
+            "thresholds": [],
+            "timeFrom": null,
+            "timeRegions": [],
+            "timeShift": null,
+            "title": "Temperature ?C",
+            "tooltip": {
+                "shared": true,
+                "sort": 0,
+                "value_type": "individual"
+            },
+            "type": "graph",
+            "xaxis": {
+                "buckets": null,
+                "mode": "time",
+                "name": null,
+                "show": true,
+                "values": []
+            },
+            "yaxes": [
+                {
+                    "decimals": null,
+                    "format": "celsius",
+                    "label": null,
+                    "logBase": 1,
+                    "max": "40",
+                    "min": null,
+                    "show": true
+                },
+                {
+                    "format": "short",
+                    "label": null,
+                    "logBase": 1,
+                    "max": null,
+                    "min": null,
+                    "show": true
+                }
+            ],
+            "yaxis": {
+                "align": false,
+                "alignLevel": null
+            }
+        },
+        {
+            "aliasColors": {},
+            "bars": false,
+            "dashLength": 10,
+            "dashes": false,
+            "datasource": null,
+            "fill": 1,
+            "fillGradient": 0,
+            "gridPos": {
+                "h": 9,
+                "w": 8,
+                "x": 8,
+                "y": 1
+            },
+            "hiddenSeries": false,
+            "id": 10,
+            "legend": {
+                "alignAsTable": false,
+                "avg": true,
+                "current": true,
+                "max": true,
+                "min": false,
+                "rightSide": false,
+                "show": true,
+                "total": false,
+                "values": true
+            },
+            "lines": true,
+            "linewidth": 1,
+            "nullPointMode": "null",
+            "options": {
+                "dataLinks": []
+            },
+            "percentage": false,
+            "pointradius": 2,
+            "points": false,
+            "renderer": "flot",
+            "seriesOverrides": [],
+            "spaceLength": 10,
+            "stack": false,
+            "steppedLine": false,
+            "targets": [
+                {
+                    "expr": "bme680_metrics{type=\"pressure\"}",
+                    "instant": false,
+                    "legendFormat": "{{instance}}",
+                    "refId": "A"
+                }
+            ],
+            "thresholds": [],
+            "timeFrom": null,
+            "timeRegions": [],
+            "timeShift": null,
+            "title": "Pressure hPa",
+            "tooltip": {
+                "shared": true,
+                "sort": 0,
+                "value_type": "individual"
+            },
+            "type": "graph",
+            "xaxis": {
+                "buckets": null,
+                "mode": "time",
+                "name": null,
+                "show": true,
+                "values": []
+            },
+            "yaxes": [
+                {
+                    "decimals": 2,
+                    "format": "pressurehpa",
+                    "label": "",
+                    "logBase": 1,
+                    "max": "1100",
+                    "min": "900",
+                    "show": true
+                },
+                {
+                    "format": "short",
+                    "label": null,
+                    "logBase": 1,
+                    "max": null,
+                    "min": null,
+                    "show": true
+                }
+            ],
+            "yaxis": {
+                "align": false,
+                "alignLevel": null
+            }
+        },
+        {
+            "aliasColors": {},
+            "bars": false,
+            "dashLength": 10,
+            "dashes": false,
+            "datasource": null,
+            "fill": 1,
+            "fillGradient": 0,
+            "gridPos": {
+                "h": 9,
+                "w": 8,
+                "x": 16,
+                "y": 1
+            },
+            "hiddenSeries": false,
+            "id": 11,
+            "legend": {
+                "alignAsTable": false,
+                "avg": true,
+                "current": true,
+                "max": true,
+                "min": false,
+                "rightSide": false,
+                "show": true,
+                "total": false,
+                "values": true
+            },
+            "lines": true,
+            "linewidth": 1,
+            "nullPointMode": "null",
+            "options": {
+                "dataLinks": []
+            },
+            "percentage": false,
+            "pointradius": 2,
+            "points": false,
+            "renderer": "flot",
+            "seriesOverrides": [],
+            "spaceLength": 10,
+            "stack": false,
+            "steppedLine": false,
+            "targets": [
+                {
+                    "expr": "bme680_metrics{type=\"humidity\"}",
+                    "instant": false,
+                    "legendFormat": "{{instance}}",
+                    "refId": "A"
+                }
+            ],
+            "thresholds": [],
+            "timeFrom": null,
+            "timeRegions": [],
+            "timeShift": null,
+            "title": "Humidity %",
+            "tooltip": {
+                "shared": true,
+                "sort": 0,
+                "value_type": "individual"
+            },
+            "type": "graph",
+            "xaxis": {
+                "buckets": null,
+                "mode": "time",
+                "name": null,
+                "show": true,
+                "values": []
+            },
+            "yaxes": [
+                {
+                    "decimals": null,
+                    "format": "percent",
+                    "label": null,
+                    "logBase": 1,
+                    "max": "100",
+                    "min": "0",
+                    "show": true
+                },
+                {
+                    "format": "short",
+                    "label": null,
+                    "logBase": 1,
+                    "max": null,
+                    "min": null,
+                    "show": true
+                }
+            ],
+            "yaxis": {
+                "align": false,
+                "alignLevel": null
+            }
+        },
+        {
+            "collapsed": true,
+            "datasource": null,
+            "gridPos": {
+                "h": 1,
+                "w": 24,
+                "x": 0,
+                "y": 10
+            },
+            "id": 8,
+            "panels": [],
+            "title": "Air quality",
+            "type": "row"
+        },
+        {
+            "aliasColors": {},
+            "bars": false,
+            "dashLength": 10,
+            "dashes": false,
+            "datasource": null,
+            "fill": 1,
+            "fillGradient": 0,
+            "gridPos": {
+                "h": 9,
+                "w": 8,
+                "x": 0,
+                "y": 11
+            },
+            "hiddenSeries": false,
+            "id": 16,
+            "legend": {
+                "alignAsTable": false,
+                "avg": true,
+                "current": true,
+                "max": true,
+                "min": false,
+                "rightSide": false,
+                "show": true,
+                "total": false,
+                "values": true
+            },
+            "lines": true,
+            "linewidth": 1,
+            "nullPointMode": "null",
+            "options": {
+                "dataLinks": []
+            },
+            "percentage": false,
+            "pointradius": 2,
+            "points": false,
+            "renderer": "flot",
+            "seriesOverrides": [],
+            "spaceLength": 10,
+            "stack": false,
+            "steppedLine": false,
+            "targets": [
+                {
+                    "expr": "bme680_metrics{type=\"air_quality_score\"}",
+                    "instant": false,
+                    "legendFormat": "{{instance}}",
+                    "refId": "A"
+                }
+            ],
+            "thresholds": [],
+            "timeFrom": null,
+            "timeRegions": [],
+            "timeShift": null,
+            "title": "IAQ",
+            "tooltip": {
+                "shared": true,
+                "sort": 0,
+                "value_type": "individual"
+            },
+            "type": "graph",
+            "xaxis": {
+                "buckets": null,
+                "mode": "time",
+                "name": null,
+                "show": true,
+                "values": []
+            },
+            "yaxes": [
+                {
+                    "decimals": null,
+                    "format": "none",
+                    "label": null,
+                    "logBase": 1,
+                    "max": null,
+                    "min": "0",
+                    "show": true
+                },
+                {
+                    "format": "short",
+                    "label": null,
+                    "logBase": 1,
+                    "max": null,
+                    "min": null,
+                    "show": true
+                }
+            ],
+            "yaxis": {
+                "align": false,
+                "alignLevel": null
+            }
+        },
+        {
+            "datasource": null,
+            "gridPos": {
+                "h": 9,
+                "w": 5,
+                "x": 16,
+                "y": 11
+            },
+            "id": 18,
+            "options": {
+                "fieldOptions": {
+                    "calcs": [
+                        "last"
+                    ],
+                    "defaults": {
+                        "mappings": [
+                            {
+                                "from": "0",
+                                "id": 1,
+                                "operator": "",
+                                "text": "Good",
+                                "to": "50",
+                                "type": 2,
+                                "value": ""
+                            },
+                            {
+                                "from": "51",
+                                "id": 2,
+                                "operator": "",
+                                "text": "Moderate",
+                                "to": "100",
+                                "type": 2,
+                                "value": ""
+                            },
+                            {
+                                "from": "101",
+                                "id": 3,
+                                "operator": "",
+                                "text": "Unhealthy for Sensitive Groups",
+                                "to": "150",
+                                "type": 2,
+                                "value": ""
+                            },
+                            {
+                                "from": "151",
+                                "id": 4,
+                                "operator": "",
+                                "text": "Unhealthy ",
+                                "to": "200",
+                                "type": 2,
+                                "value": ""
+                            },
+                            {
+                                "from": "201",
+                                "id": 5,
+                                "operator": "",
+                                "text": "Very Unhealthy ",
+                                "to": "300",
+                                "type": 2,
+                                "value": ""
+                            },
+                            {
+                                "from": "301",
+                                "id": 6,
+                                "operator": "",
+                                "text": "Hazardous",
+                                "to": "500",
+                                "type": 2,
+                                "value": ""
+                            }
+                        ],
+                        "max": 500,
+                        "min": 0,
+                        "thresholds": [
+                            {
+                                "color": "green",
+                                "value": null
+                            },
+                            {
+                                "color": "yellow",
+                                "value": 51
+                            },
+                            {
+                                "color": "orange",
+                                "value": 101
+                            },
+                            {
+                                "color": "red",
+                                "value": 151
+                            },
+                            {
+                                "color": "purple",
+                                "value": 201
+                            },
+                            {
+                                "color": "rgb(92, 38, 0)",
+                                "value": 301
+                            }
+                        ],
+                        "unit": "none"
+                    },
+                    "override": {},
+                    "values": false
+                },
+                "orientation": "auto",
+                "showThresholdLabels": true,
+                "showThresholdMarkers": true
+            },
+            "pluginVersion": "6.5.2",
+            "targets": [
+                {
+                    "expr": "bme680_metrics{type=\"air_quality_score\"}",
+                    "instant": true,
+                    "legendFormat": "",
+                    "refId": "A"
+                }
+            ],
+            "timeFrom": null,
+            "timeShift": null,
+            "title": "IAQ",
+            "type": "gauge"
+        },
+        {
+            "datasource": null,
+            "gridPos": {
+                "h": 9,
+                "w": 3,
+                "x": 21,
+                "y": 11
+            },
+            "id": 17,
+            "options": {
+                "fieldOptions": {
+                    "calcs": [
+                        "mean"
+                    ],
+                    "defaults": {
+                        "mappings": [],
+                        "max": 3,
+                        "min": 0,
+                        "thresholds": [
+                            {
+                                "color": "red",
+                                "value": null
+                            },
+                            {
+                                "color": "yellow",
+                                "value": 1.001
+                            },
+                            {
+                                "color": "green",
+                                "value": 2.001
+                            }
+                        ]
+                    },
+                    "override": {},
+                    "values": false
+                },
+                "orientation": "auto",
+                "showThresholdLabels": false,
+                "showThresholdMarkers": true
+            },
+            "pluginVersion": "6.5.2",
+            "targets": [
+                {
+                    "expr": "bme680_metrics{type=\"air_quality_score_accuracy\"}",
+                    "instant": true,
+                    "legendFormat": "{{instance}}",
+                    "refId": "A"
+                }
+            ],
+            "timeFrom": null,
+            "timeShift": null,
+            "title": "IAQ Accuracy",
+            "type": "gauge"
+        },
+        {
+            "collapsed": true,
+            "datasource": null,
+            "gridPos": {
+                "h": 1,
+                "w": 24,
+                "x": 0,
+                "y": 20
+            },
+            "id": 20,
+            "panels": [
+                {
+                    "aliasColors": {},
+                    "bars": false,
+                    "dashLength": 10,
+                    "dashes": false,
+                    "datasource": null,
+                    "fill": 1,
+                    "fillGradient": 0,
+                    "gridPos": {
+                        "h": 9,
+                        "w": 8,
+                        "x": 0,
+                        "y": 21
+                    },
+                    "hiddenSeries": false,
+                    "id": 15,
+                    "legend": {
+                        "alignAsTable": false,
+                        "avg": true,
+                        "current": true,
+                        "max": true,
+                        "min": false,
+                        "rightSide": false,
+                        "show": true,
+                        "total": false,
+                        "values": true
+                    },
+                    "lines": true,
+                    "linewidth": 1,
+                    "nullPointMode": "null",
+                    "options": {
+                        "dataLinks": []
+                    },
+                    "percentage": false,
+                    "pointradius": 2,
+                    "points": false,
+                    "renderer": "flot",
+                    "seriesOverrides": [],
+                    "spaceLength": 10,
+                    "stack": false,
+                    "steppedLine": false,
+                    "targets": [
+                        {
+                            "expr": "bme680_metrics{type=\"eco2_ppm\"}",
+                            "instant": false,
+                            "legendFormat": "{{instance}}",
+                            "refId": "A"
+                        }
+                    ],
+                    "thresholds": [],
+                    "timeFrom": null,
+                    "timeRegions": [],
+                    "timeShift": null,
+                    "title": "CO2 equivalent (estimate)",
+                    "tooltip": {
+                        "shared": true,
+                        "sort": 0,
+                        "value_type": "individual"
+                    },
+                    "type": "graph",
+                    "xaxis": {
+                        "buckets": null,
+                        "mode": "time",
+                        "name": null,
+                        "show": true,
+                        "values": []
+                    },
+                    "yaxes": [
+                        {
+                            "decimals": null,
+                            "format": "ppm",
+                            "label": null,
+                            "logBase": 1,
+                            "max": null,
+                            "min": "0",
+                            "show": true
+                        },
+                        {
+                            "format": "short",
+                            "label": null,
+                            "logBase": 1,
+                            "max": null,
+                            "min": null,
+                            "show": true
+                        }
+                    ],
+                    "yaxis": {
+                        "align": false,
+                        "alignLevel": null
+                    }
+                },
+                {
+                    "aliasColors": {},
+                    "bars": false,
+                    "dashLength": 10,
+                    "dashes": false,
+                    "datasource": null,
+                    "fill": 1,
+                    "fillGradient": 0,
+                    "gridPos": {
+                        "h": 9,
+                        "w": 8,
+                        "x": 8,
+                        "y": 21
+                    },
+                    "hiddenSeries": false,
+                    "id": 12,
+                    "legend": {
+                        "alignAsTable": false,
+                        "avg": true,
+                        "current": true,
+                        "max": true,
+                        "min": false,
+                        "rightSide": false,
+                        "show": true,
+                        "total": false,
+                        "values": true
+                    },
+                    "lines": true,
+                    "linewidth": 1,
+                    "nullPointMode": "null",
+                    "options": {
+                        "dataLinks": []
+                    },
+                    "percentage": false,
+                    "pointradius": 2,
+                    "points": false,
+                    "renderer": "flot",
+                    "seriesOverrides": [],
+                    "spaceLength": 10,
+                    "stack": false,
+                    "steppedLine": false,
+                    "targets": [
+                        {
+                            "expr": "bme680_metrics{type=\"bvoce_ppm\"}",
+                            "instant": false,
+                            "legendFormat": "{{instance}}",
+                            "refId": "A"
+                        }
+                    ],
+                    "thresholds": [],
+                    "timeFrom": null,
+                    "timeRegions": [],
+                    "timeShift": null,
+                    "title": "Breath VOC equivalent (estimate)",
+                    "tooltip": {
+                        "shared": true,
+                        "sort": 0,
+                        "value_type": "individual"
+                    },
+                    "type": "graph",
+                    "xaxis": {
+                        "buckets": null,
+                        "mode": "time",
+                        "name": null,
+                        "show": true,
+                        "values": []
+                    },
+                    "yaxes": [
+                        {
+                            "decimals": null,
+                            "format": "ppm",
+                            "label": null,
+                            "logBase": 1,
+                            "max": null,
+                            "min": "0",
+                            "show": true
+                        },
+                        {
+                            "format": "short",
+                            "label": null,
+                            "logBase": 1,
+                            "max": null,
+                            "min": null,
+                            "show": true
+                        }
+                    ],
+                    "yaxis": {
+                        "align": false,
+                        "alignLevel": null
+                    }
+                }
+            ],
+            "title": "Air quality estimates",
+            "type": "row"
+        },
+        {
+            "collapsed": true,
+            "datasource": null,
+            "gridPos": {
+                "h": 1,
+                "w": 24,
+                "x": 0,
+                "y": 21
+            },
+            "id": 6,
+            "panels": [
+                {
+                    "aliasColors": {},
+                    "bars": false,
+                    "dashLength": 10,
+                    "dashes": false,
+                    "datasource": null,
+                    "fill": 1,
+                    "fillGradient": 0,
+                    "gridPos": {
+                        "h": 9,
+                        "w": 8,
+                        "x": 0,
+                        "y": 22
+                    },
+                    "hiddenSeries": false,
+                    "id": 2,
+                    "legend": {
+                        "alignAsTable": false,
+                        "avg": true,
+                        "current": true,
+                        "max": true,
+                        "min": false,
+                        "rightSide": false,
+                        "show": true,
+                        "total": false,
+                        "values": true
+                    },
+                    "lines": true,
+                    "linewidth": 1,
+                    "nullPointMode": "null",
+                    "options": {
+                        "dataLinks": []
+                    },
+                    "percentage": false,
+                    "pointradius": 2,
+                    "points": false,
+                    "renderer": "flot",
+                    "seriesOverrides": [],
+                    "spaceLength": 10,
+                    "stack": false,
+                    "steppedLine": false,
+                    "targets": [
+                        {
+                            "expr": "100 - (avg by (instance) (irate(node_cpu_seconds_total{mode=\"idle\"}[5m])) * 100)",
+                            "instant": false,
+                            "legendFormat": "{{instance}}",
+                            "refId": "A"
+                        }
+                    ],
+                    "thresholds": [],
+                    "timeFrom": null,
+                    "timeRegions": [],
+                    "timeShift": null,
+                    "title": "CPU usage",
+                    "tooltip": {
+                        "shared": true,
+                        "sort": 0,
+                        "value_type": "individual"
+                    },
+                    "type": "graph",
+                    "xaxis": {
+                        "buckets": null,
+                        "mode": "time",
+                        "name": null,
+                        "show": true,
+                        "values": []
+                    },
+                    "yaxes": [
+                        {
+                            "decimals": null,
+                            "format": "percent",
+                            "label": null,
+                            "logBase": 1,
+                            "max": "100",
+                            "min": null,
+                            "show": true
+                        },
+                        {
+                            "format": "short",
+                            "label": null,
+                            "logBase": 1,
+                            "max": null,
+                            "min": null,
+                            "show": true
+                        }
+                    ],
+                    "yaxis": {
+                        "align": false,
+                        "alignLevel": null
+                    }
+                },
+                {
+                    "aliasColors": {},
+                    "bars": false,
+                    "dashLength": 10,
+                    "dashes": false,
+                    "datasource": null,
+                    "fill": 1,
+                    "fillGradient": 0,
+                    "gridPos": {
+                        "h": 9,
+                        "w": 8,
+                        "x": 8,
+                        "y": 22
+                    },
+                    "hiddenSeries": false,
+                    "id": 4,
+                    "interval": "",
+                    "legend": {
+                        "alignAsTable": false,
+                        "avg": true,
+                        "current": true,
+                        "max": true,
+                        "min": false,
+                        "rightSide": false,
+                        "show": true,
+                        "total": false,
+                        "values": true
+                    },
+                    "lines": true,
+                    "linewidth": 1,
+                    "nullPointMode": "null",
+                    "options": {
+                        "dataLinks": []
+                    },
+                    "percentage": false,
+                    "pointradius": 2,
+                    "points": false,
+                    "renderer": "flot",
+                    "seriesOverrides": [],
+                    "spaceLength": 10,
+                    "stack": false,
+                    "steppedLine": false,
+                    "targets": [
+                        {
+                            "expr": "( sum(node_memory_MemTotal_bytes) - sum(node_memory_MemFree_bytes + node_memory_Buffers_bytes + node_memory_Cached_bytes) ) / sum(node_memory_MemTotal_bytes) * 100",
+                            "instant": false,
+                            "legendFormat": "Mem perc.",
+                            "refId": "A"
+                        }
+                    ],
+                    "thresholds": [],
+                    "timeFrom": null,
+                    "timeRegions": [],
+                    "timeShift": null,
+                    "title": "MEM usage",
+                    "tooltip": {
+                        "shared": true,
+                        "sort": 0,
+                        "value_type": "individual"
+                    },
+                    "type": "graph",
+                    "xaxis": {
+                        "buckets": null,
+                        "mode": "time",
+                        "name": null,
+                        "show": true,
+                        "values": []
+                    },
+                    "yaxes": [
+                        {
+                            "decimals": null,
+                            "format": "percent",
+                            "label": null,
+                            "logBase": 1,
+                            "max": "100",
+                            "min": null,
+                            "show": true
+                        },
+                        {
+                            "format": "short",
+                            "label": null,
+                            "logBase": 1,
+                            "max": null,
+                            "min": null,
+                            "show": true
+                        }
+                    ],
+                    "yaxis": {
+                        "align": false,
+                        "alignLevel": null
+                    }
+                },
+                {
+                    "aliasColors": {},
+                    "bars": false,
+                    "dashLength": 10,
+                    "dashes": false,
+                    "datasource": null,
+                    "fill": 1,
+                    "fillGradient": 0,
+                    "gridPos": {
+                        "h": 9,
+                        "w": 8,
+                        "x": 16,
+                        "y": 22
+                    },
+                    "hiddenSeries": false,
+                    "id": 3,
+                    "legend": {
+                        "alignAsTable": false,
+                        "avg": true,
+                        "current": true,
+                        "max": true,
+                        "min": false,
+                        "rightSide": false,
+                        "show": true,
+                        "total": false,
+                        "values": true
+                    },
+                    "lines": true,
+                    "linewidth": 1,
+                    "nullPointMode": "null",
+                    "options": {
+                        "dataLinks": []
+                    },
+                    "percentage": false,
+                    "pointradius": 2,
+                    "points": false,
+                    "renderer": "flot",
+                    "seriesOverrides": [],
+                    "spaceLength": 10,
+                    "stack": false,
+                    "steppedLine": false,
+                    "targets": [
+                        {
+                            "expr": "(node_filesystem_size_bytes - node_filesystem_avail_bytes) / node_filesystem_size_bytes * 100",
+                            "instant": false,
+                            "legendFormat": "{{mountpoint}}",
+                            "refId": "A"
+                        }
+                    ],
+                    "thresholds": [],
+                    "timeFrom": null,
+                    "timeRegions": [],
+                    "timeShift": null,
+                    "title": "Disk Space Usage",
+                    "tooltip": {
+                        "shared": true,
+                        "sort": 0,
+                        "value_type": "individual"
+                    },
+                    "type": "graph",
+                    "xaxis": {
+                        "buckets": null,
+                        "mode": "time",
+                        "name": null,
+                        "show": true,
+                        "values": []
+                    },
+                    "yaxes": [
+                        {
+                            "decimals": null,
+                            "format": "percent",
+                            "label": null,
+                            "logBase": 1,
+                            "max": "100",
+                            "min": null,
+                            "show": true
+                        },
+                        {
+                            "format": "short",
+                            "label": null,
+                            "logBase": 1,
+                            "max": null,
+                            "min": null,
+                            "show": true
+                        }
+                    ],
+                    "yaxis": {
+                        "align": false,
+                        "alignLevel": null
+                    }
+                }
+            ],
+            "title": "Resource usage",
+            "type": "row"
+        }
+    ],
+    "refresh": "5s",
+    "schemaVersion": 21,
+    "style": "dark",
+    "tags": [],
+    "templating": {
+        "list": []
+    },
+    "time": {
+        "from": "now-3h",
+        "to": "now"
+    },
+    "timepicker": {},
+    "timezone": "",
+    "title": "Pi Monitor",
+    "uid": "z3Sr1wgRk",
+    "version": 23
+}

@@ -1,10 +1,14 @@
 #!/bin/bash
 source /home/pi/.env
+mkdir -p /home/pi/grafana/data
 docker stop grafana
 docker rm -f grafana
 docker run -d \
-  -p 3000:3000 \
-  --name=grafana \
+  --net host \
+  --name grafana \
+  --user 1000:1000 \
+  --restart always \
+  -v /home/pi/grafana/data:/var/lib/grafana \
   -e "GF_SERVER_ROOT_URL=http://$(hostname)" \
   -e "GF_SECURITY_ADMIN_PASSWORD=$GRAFANA_ADMIN_PASS" \
   grafana/grafana

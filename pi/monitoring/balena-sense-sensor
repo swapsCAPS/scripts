@@ -1,0 +1,16 @@
+#!/bin/bash
+docker stop balena-sense-sensor
+docker rm -f balena-sense-sensor
+
+docker run \
+  --name balena-sense-sensor \
+  --net host \
+  -v /home/pi/bme680-data:/data/sensor \
+  -e BALENASENSE_ALTITUDE=2 \
+  -e BALENASENSE_HUM_OFFSET=0 \
+  -e BALENASENSE_TEMP_OFFSET=-1 \
+  -d \
+  --restart always \
+  -v /dev/i2c-1:/dev/i2c-1 \
+  --privileged \
+  balena-sense-sensor
