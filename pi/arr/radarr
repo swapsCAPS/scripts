@@ -1,0 +1,19 @@
+#!/bin/bash
+
+docker stop radarr
+docker rm radarr
+
+docker run \
+    -d \
+    -e PUID=1000 \
+    -e PGID=1000 \
+    -e UMASK_SET=022 \
+    -p 7878:7878 \
+    -e TZ=Europe/Amsterdam \
+    --restart unless-stopped \
+    --name radarr \
+    -v /data/radarr:/config \
+    -v /media/pi/Kingston1/movies:/videos \
+    -v /media/pi/Kingston1/downloads:/data \
+    linuxserver/radarr
+

@@ -1,0 +1,19 @@
+#!/bin/bash
+
+docker stop sonarr
+docker rm sonarr
+
+docker run \
+    -d \
+    -e PUID=1000 \
+    -e PGID=1000 \
+    -e UMASK_SET=022 \
+    -e TZ=Europe/Amsterdam \
+    -p 8989:8989 \
+    --restart unless-stopped \
+    --name sonarr \
+    -v /data/sonarr:/config \
+    -v /media/pi/Kingston1/series:/tv \
+    -v /media/pi/Kingston1/downloads:/data \
+    linuxserver/sonarr
+
