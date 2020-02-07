@@ -2,6 +2,7 @@
 
 source ~/.env
 
+docker pull haugene/transmission-openvpn
 docker stop transmission-openvpn
 docker rm -f transmission-openvpn
 

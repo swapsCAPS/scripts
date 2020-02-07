@@ -1,7 +1,8 @@
 #!/bin/bash
 
+docker pull linuxserver/radarr
 docker stop radarr
-docker rm radarr
+docker rm -f radarr
 
 docker run \
     -d \
@@ -15,5 +16,5 @@ docker run \
     -v /data/radarr:/config \
     -v /media/pi/Kingston1/movies:/videos \
     -v /media/pi/Kingston1/downloads:/data \
-    linuxserver/radarr
+    linuxserver/radarr:latest
 

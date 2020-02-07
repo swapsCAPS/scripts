@@ -1,5 +1,6 @@
 #!/bin/bash
 
+docker pull linuxserver/sonarr
 docker stop sonarr
 docker rm sonarr
 
@@ -15,5 +16,5 @@ docker run \
     -v /data/sonarr:/config \
     -v /media/pi/Kingston1/series:/tv \
     -v /media/pi/Kingston1/downloads:/data \
-    linuxserver/sonarr
+    linuxserver/sonarr:latest
 
