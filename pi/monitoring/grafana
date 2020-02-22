@@ -7,6 +7,11 @@ mkdir -p /home/pi/grafana/data
 docker stop grafana
 docker rm -f grafana
 
+if [ -z "$GRAFANA_ADMIN_PASS" ]; then
+  echo "Grafana admin pass not set in env vars, exiting."
+  exit 1
+fi
+
 docker run -d \
   --net host \
   --name grafana \
