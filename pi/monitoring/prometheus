@@ -1,13 +1,20 @@
 #!/bin/bash
 docker stop prometheus
 docker rm -f prometheus
+
+# https://stackoverflow.com/questions/59895
+# Get script path no matter where the script is being called from
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+
+CONFIG_DIR=$DIR/prometheus-configs:/etc/prometheus
+
 docker run \
     --net host \
     --restart always \
     --name prometheus \
     --user 1000:1000 \
     -d \
-    -v /home/pi/prometheus/config:/etc/prometheus \
+    -v $CONFIG_DIR \
     -v /home/pi/prometheus/data:/data \
     prom/prometheus \
     --storage.tsdb.path /data \
