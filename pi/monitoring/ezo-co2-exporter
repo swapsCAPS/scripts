@@ -6,6 +6,6 @@ docker run \
   --name ezo-co2-exporter \
   --device /dev/ttyS0:/dev/ttyS0:rwm \
   -p 8000:8000 \
-  -it \
+  -d \
   --restart always \
   ezo-co2-exporter
