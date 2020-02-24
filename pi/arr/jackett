@@ -1,0 +1,18 @@
+#!/bin/bash
+
+docker stop jackett
+docker rm jackett
+
+docker run \
+    -d \
+    --name jackett \
+    -e PUID=1000 \
+    -e PGID=1000 \
+    --dns=9.9.9.9 \
+    -e TZ=Europe/Amsterdam \
+    -v /data/jackett:/config \
+    -v /home/pi/Torrents/blackhole:/downloads \
+    -p 9117:9117 \
+    --restart unless-stopped \
+    linuxserver/jackett
+

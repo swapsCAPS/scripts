@@ -1,0 +1,47 @@
+#!/bin/bash
+
+source ~/.env
+
+docker pull haugene/transmission-openvpn
+docker stop transmission-openvpn
+docker rm -f transmission-openvpn
+
+docker run \
+    --cap-add=NET_ADMIN \
+    -d \
+    --name transmission-openvpn \
+    -v /media/pi/Kingston1/downloads:/data \
+    -v /data/transmission:/config \
+    -v /etc/localtime:/etc/localtime:ro \
+    -e TZ=Europe/Amsterdam \
+    -e PUID=1000 \
+    -e PGID=1000 \
+    -e TRANSMISSION_RPC_AUTHENTICATION_REQUIRED=true \
+    -e TRANSMISSION_RPC_USERNAME=$TRANSMISSION_RPC_USERNAME \
+    -e TRANSMISSION_RPC_PASSWORD=$TRANSMISSION_RPC_PASSWORD \
+    -e CREATE_TUN_DEVICE=true \
+    -e OPENVPN_PROVIDER=PIA \
+    -e OPENVPN_CONFIG=Netherlands \
+    -e OPENVPN_USERNAME=$OPENVPN_USERNAME \
+    -e OPENVPN_PASSWORD=$OPENVPN_PASSWORD \
+    -e TRANSMISSION_DOWNLOAD_QUEUE_SIZE=5 \
+    -e TRANSMISSION_IDLE_SEEDING_LIMIT=30 \
+    -e TRANSMISSION_IDLE_SEEDING_LIMIT_ENABLED=true \
+    -e TRANSMISSION_RATIO_LIMIT=1.5 \
+    -e TRANSMISSION_RATIO_LIMIT_ENABLED=true \
+    -e TRANSMISSION_MAX_PEERS_GLOBAL=300 \
+    -e TRANSMISSION_PEER_LIMIT_GLOBAL=300 \
+    -e TRANSMISSION_PEER_LIMIT_PER_TORRENT=100 \
+    -e TRANSMISSION_SPEED_LIMIT_UP=15 \
+    -e TRANSMISSION_SPEED_LIMIT_UP_ENABLED=true \
+    -e WEBPROXY_ENABLED=false \
+    -e LOCAL_NETWORK=192.168.0.0/24 \
+    -e OPENVPN_OPTS="--inactive 3600 --ping 10 --ping-exit 60" \
+    --dns 9.9.9.9 \
+    --log-driver json-file \
+    --log-opt max-size=10m \
+    -p 9091:9091 \
+    -p 51413:51413 \
+    -p 51413:51413/udp \
+    --restart unless-stopped \
+    haugene/transmission-openvpn:latest-armhf
