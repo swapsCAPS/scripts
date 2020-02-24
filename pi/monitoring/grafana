@@ -11,4 +11,5 @@ docker run -d \
   -v /home/pi/grafana/data:/var/lib/grafana \
   -e "GF_SERVER_ROOT_URL=http://$(hostname)" \
   -e "GF_SECURITY_ADMIN_PASSWORD=$GRAFANA_ADMIN_PASS" \
+  -e "GF_AUTH_ANONYMOUS_ENABLED=true" \
   grafana/grafana

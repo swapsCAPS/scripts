@@ -12,5 +12,5 @@ docker run \
     prom/prometheus \
     --storage.tsdb.path /data \
     --config.file /etc/prometheus/prometheus.yml \
-    --storage.tsdb.retention.time 7d
+    --storage.tsdb.retention.time 30d
 
