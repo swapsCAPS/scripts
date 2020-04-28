@@ -2,6 +2,7 @@
 
 docker stop jackett
 docker rm jackett
+docker pull linuxserver/jackett
 
 docker run \
     -d \
