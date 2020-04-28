@@ -1,11 +1,8 @@
 global:
-  # How frequently to scrape targets by default.
   scrape_interval: 1m
 
-  # How long until a scrape request times out.
   scrape_timeout: 5s
 
-  # How frequently to evaluate rules.
   evaluation_interval: 1m
 
 scrape_configs:
@@ -14,12 +11,13 @@ scrape_configs:
     scrape_interval: 1m
     static_configs:
       - targets:
-        - "localhost:9100"
+        - "localhost:9100" # node-exporter
 
   - job_name: high-hf
     metrics_path: /metrics
     scrape_interval: 15s
     static_configs:
       - targets:
-        - "localhost:4242"
+        - "localhost:4242" # balena-sense (bme680)
+        - "localhost:8000" # ezo-co2
 

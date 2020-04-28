@@ -8,7 +8,7 @@ docker run \
   -v /home/pi/bme680-data:/data/sensor \
   -e BALENASENSE_ALTITUDE=2 \
   -e BALENASENSE_HUM_OFFSET=0 \
-  -e BALENASENSE_TEMP_OFFSET=-1 \
+  -e BALENASENSE_TEMP_OFFSET=-2 \
   -d \
   --restart always \
   -v /dev/i2c-1:/dev/i2c-1 \
