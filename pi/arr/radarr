@@ -6,15 +6,15 @@ docker rm -f radarr
 
 docker run \
     -d \
-    -e PUID=1000 \
-    -e PGID=1000 \
+    -e PUID=0 \
+    -e PGID=0 \
     -e UMASK_SET=022 \
     -p 7878:7878 \
     -e TZ=Europe/Amsterdam \
     --restart unless-stopped \
     --name radarr \
-    -v /data/radarr:/config \
-    -v /media/pi/Kingston1/movies:/videos \
-    -v /media/pi/Kingston1/downloads:/data \
+    -v /media/pi/Kingston_2TB/data/radarr:/config \
+    -v /media/pi/Kingston_2TB/movies:/videos \
+    -v /media/pi/Kingston_2TB/downloads:/data \
     linuxserver/radarr:latest
 

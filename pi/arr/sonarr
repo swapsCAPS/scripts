@@ -6,15 +6,15 @@ docker rm sonarr
 
 docker run \
     -d \
-    -e PUID=1000 \
-    -e PGID=1000 \
+    -e PUID=0 \
+    -e PGID=0 \
     -e UMASK_SET=022 \
     -e TZ=Europe/Amsterdam \
     -p 8989:8989 \
     --restart unless-stopped \
     --name sonarr \
-    -v /data/sonarr:/config \
-    -v /media/pi/Kingston1/series:/tv \
-    -v /media/pi/Kingston1/downloads:/data \
+    -v /media/pi/Kingston_2TB/data/sonarr:/config \
+    -v /media/pi/Kingston_2TB/series:/tv \
+    -v /media/pi/Kingston_2TB/downloads:/data \
     linuxserver/sonarr:latest
 

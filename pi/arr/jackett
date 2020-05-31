@@ -7,12 +7,12 @@ docker pull linuxserver/jackett
 docker run \
     -d \
     --name jackett \
-    -e PUID=1000 \
-    -e PGID=1000 \
+    -e PUID=0 \
+    -e PGID=0 \
     --dns=9.9.9.9 \
     -e TZ=Europe/Amsterdam \
-    -v /data/jackett:/config \
-    -v /home/pi/Torrents/blackhole:/downloads \
+    -v /media/pi/Kingston_2TB/jackett:/config \
+    -v /storage/Torrents/blackhole:/downloads \
     -p 9117:9117 \
     --restart unless-stopped \
     linuxserver/jackett
