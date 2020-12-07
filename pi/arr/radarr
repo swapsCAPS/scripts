@@ -13,8 +13,8 @@ docker run \
     -e TZ=Europe/Amsterdam \
     --restart unless-stopped \
     --name radarr \
-    -v /media/pi/Kingston_2TB/data/radarr:/config \
-    -v /media/pi/Kingston_2TB/movies:/videos \
-    -v /media/pi/Kingston_2TB/downloads:/data \
+    -v /media/Kingston_2TB/data/radarr:/config \
+    -v /media/Kingston_2TB/movies:/videos \
+    -v /media/Kingston_2TB/downloads:/data \
     linuxserver/radarr:latest
 
