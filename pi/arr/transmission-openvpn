@@ -1,8 +1,10 @@
 #!/bin/bash
 
+TAG=latest
+
 source ~/.env
 
-docker pull haugene/transmission-openvpn
+docker pull haugene/transmission-openvpn:$TAG
 docker stop transmission-openvpn
 docker rm -f transmission-openvpn
 
@@ -21,7 +23,7 @@ docker run \
     -e TRANSMISSION_RPC_PASSWORD=$TRANSMISSION_RPC_PASSWORD \
     -e CREATE_TUN_DEVICE=true \
     -e OPENVPN_PROVIDER=PIA \
-    -e OPENVPN_CONFIG=DE_Frankfurt \
+    -e OPENVPN_CONFIG=netherlands \
     -e OPENVPN_USERNAME=$OPENVPN_USERNAME \
     -e OPENVPN_PASSWORD=$OPENVPN_PASSWORD \
     -e TRANSMISSION_DOWNLOAD_QUEUE_SIZE=5 \
@@ -35,7 +37,7 @@ docker run \
     -e TRANSMISSION_SPEED_LIMIT_UP=15 \
     -e TRANSMISSION_SPEED_LIMIT_UP_ENABLED=true \
     -e WEBPROXY_ENABLED=false \
-    -e LOCAL_NETWORK=192.168.0.0/24 \
+    -e LOCAL_NETWORK=192.168.178.0/24 \
     -e OPENVPN_OPTS="--inactive 3600 --ping 10 --ping-exit 60" \
     --dns 9.9.9.9 \
     --log-driver json-file \
@@ -44,4 +46,4 @@ docker run \
     -p 51413:51413 \
     -p 51413:51413/udp \
     --restart unless-stopped \
-    haugene/transmission-openvpn:latest-armhf
+    haugene/transmission-openvpn:$TAG
