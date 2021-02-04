@@ -11,7 +11,7 @@ docker run \
     -e PGID=0 \
     --dns=9.9.9.9 \
     -e TZ=Europe/Amsterdam \
-    -v /media/pi/Kingston_2TB/jackett:/config \
+    -v /media/Kingston_2TB/jackett:/config \
     -v /storage/Torrents/blackhole:/downloads \
     -p 9117:9117 \
     --restart unless-stopped \

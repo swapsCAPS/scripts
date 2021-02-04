@@ -13,8 +13,8 @@ docker run \
     -p 8989:8989 \
     --restart unless-stopped \
     --name sonarr \
-    -v /media/pi/Kingston_2TB/data/sonarr:/config \
-    -v /media/pi/Kingston_2TB/series:/tv \
-    -v /media/pi/Kingston_2TB/downloads:/data \
+    -v /media/Kingston_2TB/data/sonarr:/config \
+    -v /media/Kingston_2TB/series:/tv \
+    -v /media/Kingston_2TB/downloads:/data \
     linuxserver/sonarr:latest
 
