@@ -11,13 +11,7 @@ scrape_configs:
     scrape_interval: 1m
     static_configs:
       - targets:
-        - "localhost:9100" # node-exporter
+        - "localhost:9100"  # node-exporter
+        - "192.168.178.20:19090" # esp32 mqtt-to-prom
 
-  - job_name: high-hf
-    metrics_path: /metrics
-    scrape_interval: 15s
-    static_configs:
-      - targets:
-        - "localhost:4242" # balena-sense (bme680)
-        - "localhost:8000" # ezo-co2
 
