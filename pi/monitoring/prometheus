@@ -15,7 +15,7 @@ docker run \
     --user 1000:1000 \
     -d \
     -v $CONFIG_DIR \
-    -v /home/pi/prometheus/data:/data \
+    -v $HOME/prometheus/data:/data \
     prom/prometheus \
     --storage.tsdb.path /data \
     --config.file /etc/prometheus/prometheus.yml \

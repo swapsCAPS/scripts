@@ -1,8 +1,8 @@
 #!/bin/bash
 
-source /home/pi/.env # GRAFANA_ADMIN_PASS defined in env vars
+source $HOME/.env # GRAFANA_ADMIN_PASS defined in env vars
 
-mkdir -p /home/pi/grafana/data
+mkdir -p $HOME/grafana/data
 
 docker stop grafana
 docker rm -f grafana
@@ -17,7 +17,7 @@ docker run -d \
   --name grafana \
   --user 1000:1000 \
   --restart always \
-  -v /home/pi/grafana/data:/var/lib/grafana \
+  -v $HOME/grafana/data:/var/lib/grafana \
   -e "GF_SERVER_ROOT_URL=http://$(hostname)" \
   -e "GF_SECURITY_ADMIN_USER=admin" \
   -e "GF_SECURITY_ADMIN_PASSWORD=$GRAFANA_ADMIN_PASS" \
