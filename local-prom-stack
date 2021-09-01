@@ -1,0 +1,57 @@
+#!/bin/bash
+
+source $HOME/.env # GRAFANA_ADMIN_PASS defined in env vars
+
+mkdir -p $HOME/grafana/data
+mkdir -p $HOME/prometheus/data
+
+if [ -z "$GRAFANA_ADMIN_PASS" ]; then
+  echo "Grafana admin pass not set in env vars, exiting."
+  exit 1
+fi
+
+docker stop prometheus
+docker rm -f prometheus
+
+# https://stackoverflow.com/questions/59895
+# Get script path no matter where the script is being called from
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+
+docker run \
+    --net host \
+    --restart unless-stopped \
+    --name prometheus \
+    --user 1000:1000 \
+    -d \
+    -v $DIR/local-prom-config.yml:/etc/prometheus/prometheus.yml \
+    -v $HOME/prometheus/data:/data \
+    prom/prometheus \
+    --storage.tsdb.path /data \
+    --config.file /etc/prometheus/prometheus.yml \
+    --storage.tsdb.retention.time 7d
+
+docker stop grafana
+docker rm -f grafana
+docker run -d \
+  --net host \
+  --name grafana \
+  --user 1000:1000 \
+  --restart unless-stopped \
+  -v $HOME/grafana/data:/var/lib/grafana \
+  -e "GF_SERVER_ROOT_URL=http://$(hostname)" \
+  -e "GF_SECURITY_ADMIN_USER=admin" \
+  -e "GF_SECURITY_ADMIN_PASSWORD=$GRAFANA_ADMIN_PASS" \
+  -e "GF_AUTH_ANONYMOUS_ENABLED=true" \
+  grafana/grafana
+
+docker stop process-exporter
+docker rm -f process-exporter
+docker run \
+  -d \
+  --restart unless-stopped \
+  -p 9256:9256 \
+  --name process-exporter \
+  --privileged \
+  -v /proc:/host/proc \
+  -v $DIR/process-exporter-config.yml:/config/process-exporter.yml \
+  ncabatoff/process-exporter --procfs /host/proc -config.path /config/process-exporter.yml

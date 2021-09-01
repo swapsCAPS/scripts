@@ -1,0 +1,6 @@
+process_names:
+  - comm:
+    - node
+    name: "{{.ExeFull}}"
+    cmdline:
+    - "development"
