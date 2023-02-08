@@ -18,7 +18,7 @@ docker rm -f prometheus
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 docker run \
-    --net host \
+    -p 9090:9090 \
     --restart unless-stopped \
     --name prometheus \
     --user 1000:1000 \
@@ -33,7 +33,7 @@ docker run \
 docker stop grafana
 docker rm -f grafana
 docker run -d \
-  --net host \
+  -p 3000:3000 \
   --name grafana \
   --user 1000:1000 \
   --restart unless-stopped \

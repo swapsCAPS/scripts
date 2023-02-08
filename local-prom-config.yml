@@ -11,4 +11,18 @@ scrape_configs:
     scrape_interval: 1s
     static_configs:
       - targets:
-        - "localhost:9256"
+        - "host.docker.internal:9256"
+
+  - job_name: local_apps
+    metrics_path: /metrics
+    scrape_interval: 10s
+    static_configs:
+      - targets:
+        - "host.docker.internal:9191"
+
+  - job_name: vio
+    metrics_path: /metrics
+    scrape_interval: 5s
+    static_configs:
+      - targets:
+        - "host.docker.internal:1337"
