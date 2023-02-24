@@ -1,8 +1,11 @@
 #!/bin/bash
 
-docker pull linuxserver/sonarr
-docker stop sonarr
-docker rm sonarr
+$image=lscr.io/linuxserver/sonarr:arm64v8-latest
+$container_name=sonarr
+
+docker pull $image
+docker stop $container_name
+docker rm $container_name
 
 docker run \
     -d \
@@ -12,9 +15,9 @@ docker run \
     -e TZ=Europe/Amsterdam \
     -p 8989:8989 \
     --restart unless-stopped \
-    --name sonarr \
+    --name $container_name \
     -v /media/Kingston_2TB/data/sonarr:/config \
     -v /media/Kingston_2TB/series:/tv \
     -v /media/Kingston_2TB/downloads:/data \
-    linuxserver/sonarr:latest
+    $image
 
