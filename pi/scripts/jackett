@@ -9,6 +9,7 @@ docker run \
     --name jackett \
     -e PUID=0 \
     -e PGID=0 \
+    --dns=9.9.9.9 \
     -e TZ=Europe/Amsterdam \
     -v /media/Kingston_2TB/jackett:/config \
     -v /storage/Torrents/blackhole:/downloads \

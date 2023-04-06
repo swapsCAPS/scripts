@@ -1,0 +1,6 @@
+#!/bin/bash
+
+$(pwd)/jackett
+$(pwd)/transmission-openvpn
+$(pwd)/radarr
+$(pwd)/sonarr
